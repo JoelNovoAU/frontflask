@@ -61,7 +61,7 @@ $(document).ready(function () {
     // Crear un nuevo usuario
     $('#crearUsuarioForm').on('submit', function (e) {
         e.preventDefault();
-
+        const id = $('#id').val();
         const nombre = $('#nombre').val();
         const apellido = $('#apellido').val();
 
@@ -69,7 +69,7 @@ $(document).ready(function () {
             url: 'https://flask1-ten.vercel.app/api/crear',
             method: 'POST',
             contentType: 'application/json',
-            data: JSON.stringify({ nombre, apellido }),
+             data: JSON.stringify({ id, nombre, apellido }), 
             success: function () {
                 alert('Usuario creado correctamente');
                 $('#crearUsuarioForm')[0].reset();
